@@ -1,10 +1,3 @@
----
-title: "OAS"
-category: reverse
-difficulty: hard
-
----
-
 # OAS
 
 **Final flag:**
