@@ -51,7 +51,7 @@ The hardest part was definitely the real entry's plaintext-dependent block permu
 
 # AI Assistance
 
-AI tools were used while solving this challenge, mainly to make the reverse-engineering process faster and to help organize everything as the solve got more complicated. The challenge still needed a lot of actual checking though. I had to understand the archive format, test different ideas, figure out which paths were wrong, and make sure the final flag came from the recovered files instead of just some random guess.
+AI tools were used while solving this challenge, mainly to make the reverse-engineering process faster and to help organize everything as the solve got more complicated. The challenge still needed a lot of actual checking though. I had to understand the archive format, test different ideas, figure out which paths were wrong, and make sure the final flag came from the recovered files instead of just some random guess. AI was also used in this writeup.
 
 AI was most useful for:
 
