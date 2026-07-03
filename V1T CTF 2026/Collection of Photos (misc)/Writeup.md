@@ -1,4 +1,4 @@
-#New Ways to Store my CP (Collection of Photos)
+# New Ways to Store my CP (Collection of Photos)
 
 ## Overview
 
