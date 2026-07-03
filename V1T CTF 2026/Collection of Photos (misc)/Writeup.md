@@ -1,4 +1,4 @@
-# CTF Writeup: YouTube Static Video Steganography
+# CTF Writeup: New Ways to Store my CP (Collection of Photos)
 
 ## Overview
 
