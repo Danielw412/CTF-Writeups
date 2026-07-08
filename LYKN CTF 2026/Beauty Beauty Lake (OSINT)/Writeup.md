@@ -35,6 +35,7 @@ I ended up trying over 200 points with no luck. I was pretty close to giving up 
 Then I tried a few more points near the edge of the search area, and one of them finally worked. The correct location ended up being the green point here:
 
 ![alt text](image-6.png)
+![alt text](image.png)
 
 ## Flag
 
