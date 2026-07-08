@@ -20,7 +20,7 @@ I overcomplicated this problem a lot, so I'll first explain the most direct way 
 
 The most useful information was from Miss My School:
 
-We already knew the school name was **Trường Tiểu học Long Biên**. The challenge also said: "I am 18 years old now, and I started first grade in 2013. Find the elementary school I used to attend."
+Were given that the school name was **Trường Tiểu học Long Biên**. The challenge also said: "I am 18 years old now, and I started first grade in 2013. Find the elementary school I used to attend."
 
 So the main things to search for were:
 
