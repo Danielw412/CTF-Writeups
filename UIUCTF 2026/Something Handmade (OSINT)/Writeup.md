@@ -1,144 +1,215 @@
-Challenge: 
+# Challenge
 
-Most of Belda and Bink's plans are visible to everyone. Someone involved in the handmade details knows a bit more. What is it?
+> Most of Belda and Bink's plans are visible to everyone. Someone involved in the handmade details knows a bit more. What is it?
 
-https://www.zola.com/wedding/beldaandbink
+<p align="center">
+  <img src="challenge-site.png" alt="Something Handmade challenge page" width="560">
+</p>
 
-This challenge was one of the harder OSINT challenges ive solved, and I was freaking out when I finally got the flag... mainly becasue I think I overcomplicated it and there was a probably an easier way. 
+<https://www.zola.com/wedding/beldaandbink>
 
-This was my reaction when solving it: 
+This challenge was one of the harder OSINT challenges I've solved, and I was freaking out when I finally got the flag... mainly because I think I overcomplicated it and there was probably an easier way.
 
-![reaction-text-message](image-20.png)
 
-and this was my explanation to my teammate (I was high on adrenaline):
+<strong>My reaction and explanation to my teammate</strong>
+<br>
 
-![alt text](image-21.png)
-![alt text](image-22.png)
-![alt text](image-23.png)
+This was my reaction when solving it:
 
-Flag search process: 
+<p align="center">
+  <img src="image-20.png" alt="reaction text message" width="520">
+</p>
 
-Looking Through the Wedding Website
+And this was my explanation to my teammate (I was high on adrenaline):
 
-The link takes you to a Zola wedding page. Most of the information didnt seem useful at first glance until you come across this text: 
+<p align="center">
+  <img src="image-21.png" alt="teammate explanation screenshot 1" width="32%">
+  <img src="image-22.png" alt="teammate explanation screenshot 2" width="32%">
+  <img src="image-23.png" alt="teammate explanation screenshot 3" width="32%">
+</p>
 
-![alt text](image.png)
 
-This fits the challenge description because it says someone by the name of @miphamakes was doing "something handmade"
 
-Finding miphamakes
+---
 
-The natural next step would be to try to find the @miphamakes account. I expected this to be a simple instagram or tiktok account or something but nothing came up. I then used sherlock to try to search the major social media networks... still nothing. Then I tried a different username search tool, Maigret, to search the less popular sites.
+# Flag search process
 
-![alt text](image-1.png)
-![alt text](image-2.png)
+## Looking Through the Wedding Website
 
-This result must be the next step...it was made the day the CTF challenge and was the only result.
+The link takes you to a Zola wedding page. Most of the information didn't seem useful at first glance until I came across this text:
 
-The result takes you to a site called Deviant Art with 3 images posted. I was stuck here for a while. I scanned everyone who favorited/commented on the images but nothing was useful. I also tried downloading the images and doing forensics on them, but nothing came from that. 
+<p align="center">
+  <img src="image.png" alt="Zola wedding page handmade details text" width="760">
+</p>
 
-![alt text](image-3.png)
+This fits the challenge description because it says someone by the name of `@miphamakes` was doing "something handmade."
 
-The Three Handmade Posts
+---
+
+## Finding miphamakes
+
+The natural next step would be to try to find the `@miphamakes` account. I expected this to be a simple Instagram or TikTok account or something, but nothing came up. I then used Sherlock to try to search the major social media networks... still nothing. Then I tried a different username search tool, Maigret, to search the less popular sites.
+
+<p align="center">
+  <img src="image-1.png" alt="Sherlock username search result" width="430">
+</p>
+
+<p align="center">
+  <img src="image-2-result.png" alt="Maigret username search result" width="720">
+</p>
+
+This result had to be the next step... it was made on the day of the CTF challenge and was the only result.
+
+The result takes you to a site called DeviantArt with 3 images posted. I was stuck here for a while. I scanned everyone who favorited/commented on the images but nothing was useful. I also tried downloading the images and doing forensics on them, but nothing came from that.
+
+<p align="center">
+  <img src="image-3.png" alt="miphamakes DeviantArt profile" width="900">
+</p>
+
+---
+
+## The Three Handmade Posts
 
 I spent a good 30 minutes just scouring the DeviantArt profile trying to find something useful. The actual direction was simpler than expected...
 
-There was 3 images with descriptions for each: 
-![alt text](image-4.png)
-![alt text](image-5.png)
-![alt text](image-6.png)
+There were 3 images, each with a description:
 
-Dead Ends
+<p align="center">
+  <img src="image-4-clue.png" alt="Triforce Florals description mentioning Tessa" width="760">
+</p>
 
-I didnt really know what to do with these 3 names so before realizing what the three names were for, I investigated several other possibilities (the last one was very desperate...)
-- reverse searching the handmade images
-- examining DeviantArt image metadata
-- looking at watchers, favorites, comments, and badge givers
-- trying to identify the location in the Zola gallery photo
-- searching for possible usernames based on Carl, such as carlmakes, carlcrafts, and similar variants
+<p align="center">
+  <img src="image-5-clue.png" alt="Bout of Doubt description mentioning Nolan" width="760">
+</p>
 
-The social interactions were very unreliable because DeviantArt is a live platform. Watchers, favorites, comments, and badges could come from just normal users or even other CTF players
+<p align="center">
+  <img src="image-6-clue.png" alt="Our Wedding Bags description mentioning Carl" width="760">
+</p>
 
-Trying username variants for Carl also produced huge numbers of unrelated real accounts. For example, CarlCrafts led to a random minecraft youtube channel. 
+---
 
-Then I gave up for a while, and went to give "Lost Media" a shot... which also was pretty frustrating (you can find the writeup here: UIUCTF 2026\Lost Media (OSINT)\Writeup.md) 
 
-The big realization
+<summary><strong>Dead Ends</strong></summary>
+<br>
 
-After I came back, I realized that the names were probably guest names to the wedding. There were two reasons for this assumption: 
-1. The descriptions imply that the names were involved in the wedding
-2. Zola wedding websites have an RSVP system where guests identify themselves by entering their name
-    - The challenge description said "Most of Belda and Bink's plans are visible to everyone. "
+I didn't really know what to do with these 3 names, so before realizing what the three names were for, I tried several other possible paths (the last one was very desperate...)
 
-So there are 3 possible guest names: Carl, Tessa, and Nolan
+- Reverse-searching the handmade images
+- Examining DeviantArt image metadata
+- Looking at watchers, favorites, comments, and badge givers
+- Trying to identify the location in the Zola gallery photo
+- Searching for possible usernames based on Carl, such as `carlmakes`, `carlcrafts`, and similar variants
+
+The social interactions were very unreliable because DeviantArt is a live platform. Watchers, favorites, comments, and badges could come from just normal users or even other CTF players.
+
+Trying username variants for Carl also produced huge numbers of unrelated real accounts. For example, CarlCrafts led to a random Minecraft YouTube channel.
+
+Then I gave up for a while and went to give "Lost Media" a shot... which also was pretty frustrating (you can find the writeup here: `UIUCTF 2026\Lost Media (OSINT)\Writeup.md`)
+
+
+
+---
+
+## The Big Realization
+
+After I came back, I realized that the names were probably guest names at the wedding. There were two reasons for this assumption:
+
+1. The descriptions implied that the names were involved in the wedding.
+2. Zola wedding websites have an RSVP system where guests identify themselves by entering their name.
+
+The challenge description said, "Most of Belda and Bink's plans are visible to everyone."
+
+So there are 3 possible guest names: `Carl`, `Tessa`, and `Nolan`.
 
 Now all I had to do was figure out how Zola's guest lookup worked! Easier said than done...
 
-Reverse Engineering Zola's RSVP Search
+---
 
-The Belda and Bink wedding website didnt have a RSVP interface... so I found a random public Zola wedding that had an RSVP page. 
+## Reverse Engineering Zola's RSVP Search
 
-![alt text](image-7.png)
-![alt text](image-8.png)
+The Belda and Bink wedding website didn't have an RSVP interface... so I found a random public Zola wedding that had an RSVP page. (https://www.zola.com/wedding/yeseniaandfrank2025/rsvp)
 
-I apologize to this couple for stalking their wedding page... but I had to understand how the Zola frontend worked. 
+<p align="center">
+  <img src="image-8-rsvp.png" alt="Public Zola RSVP guest-name form" width="650">
+</p>
 
-I entered a random guest name to see how the network requests worked. 
+I apologize to this couple for stalking their wedding page... but I had to understand how the Zola frontend worked.
 
-![picture of network request](image-9.png)
-![response](image-10.png)
+I entered a random guest name to see how the network requests worked.
 
-This was very interesting... the request format was 
+<p align="center">
+  <img src="image-9-request.png" alt="Zola RSVP network request" width="800">
+</p>
 
+This was very interesting... the request format was:
+
+```http
 POST /web-api/v1/publicwedding/rsvp/guest/wedding-account/uuid/<WEDDING_UUID>/search-groups
+```
 
 The payload was extremely simple:
 
+```json
 {
   "guest_name": "zzzztestperson"
 }
+```
 
 The response was:
 
+```json
 []
+```
 
-So this was how Zola's public RSVP guest search worked
+So this was how Zola's public RSVP guest search worked.
 
-Getting the UUID of Belda and Bink
+---
 
-This was pretty simple... just inspecting the page source of the wedding page. 
+### Getting the UUID of Belda and Bink
 
-I got a little lazy because there were so many "uuid" and I was not about to search 49 instances of "uuid"
+This was pretty simple... just inspecting the page source of the wedding page.
 
-![alt text](image-11.png)
+I got a little lazy because there were so many instances of "UUID," and I was not about to search all 49 of them.
 
-so I copy pasted the whole page source into ChatGPT and asked it to get the account UUID:
+<p align="center">
+  <img src="image-11.png" alt="Searching page source for uuid" width="44%">
+</p>
 
-![alt text](image-12.png)
+So I copy-pasted the whole page source into ChatGPT and asked it to get the account UUID:
 
-It found it: 
+<p align="center">
+  <img src="image-12-uuid.png" alt="ChatGPT finding wedding account UUID and ID" width="760">
+</p>
 
-Wedding Account ID:
-5170610
+It found it:
 
-Wedding Account UUID:
-98298caa-11a9-4c3e-83c2-197f59ec8235
+|  |  |
+|---|---|
+| **Wedding Account ID:** | `5170610` |
+| **Wedding Account UUID:** | `98298caa-11a9-4c3e-83c2-197f59ec8235` |
 
-Reproducing Guest Search
+---
+
+### Reproducing Guest Search
 
 I first tried calling the endpoint directly from the DevTools console.
 
-The initial requests returned:
+The initial request returned:
 
+```text
 403 Forbidden
 Invalid request
+```
 
-![alt text](image-13.png)
+<p align="center">
+  <img src="image-13.png" alt="403 Forbidden invalid request in DevTools" width="760">
+</p>
 
-Comparing the manual request with the legitimate browser request showed that the original request contained an x-csrf-token header.
+Comparing the manual request with the legitimate browser request showed that the original request contained an `x-csrf-token` header.
 
-The CSRF value could be read from Zola's CSRF-TOKEN cookie:
+The CSRF value could be read from Zola's `CSRF-TOKEN` cookie:
 
+```js
 const csrf = decodeURIComponent(
   document.cookie
     .split("; ")
@@ -147,11 +218,15 @@ const csrf = decodeURIComponent(
 );
 
 console.log(csrf);
+```
 
-![alt text](image-14.png)
+<p align="center">
+  <img src="image-14.png" alt="CSRF token read from cookie" width="381">
+</p>
 
 Then I created a helper:
 
+```js
 async function searchGuest(uuid, name) {
   const r = await fetch(
     `https://www.zola.com/web-api/v1/publicwedding/rsvp/guest/wedding-account/uuid/${uuid}/search-groups`,
@@ -176,41 +251,53 @@ async function searchGuest(uuid, name) {
     response: text
   });
 }
+```
 
 I tested it:
 
+```js
 searchGuest(
   "98298caa-11a9-4c3e-83c2-197f59ec8235",
   "zzzztestperson"
 );
+```
 
-![alt text](image-15.png)
+<p align="center">
+  <img src="image-15.png" alt="Successful test guest search" width="760">
+</p>
 
 Result:
 
+```text
 status: 200
 response: []
+```
 
-This meant that the request was being reproduced correctly and the challenge wedding supported the same guest-search API!
+This meant that the request was reproduced correctly and the challenge wedding supported the same guest-search API!
 
-Searching the Names From DeviantArt
+---
 
-I then tried searching the 3 names from the descriptions to see if they appear on the RSVP guest list for the challenge website. 
+### Searching the Names From DeviantArt
 
-![alt text](image-16.png)
+I then tried searching the 3 names from the descriptions to see if they appeared on the RSVP guest list for the challenge website.
 
-That was a huge breakthrough. The three names from the posts were actual guests in the challenge wedding. 
+<p align="center">
+  <img src="image-16.png" alt="Searching Carl Tessa and Nolan through Zola guest search" width="760">
+</p>
 
-Gathering more info
+The three names from the posts were actual guests in the challenge wedding!!
 
-The search-groups endpoint only gave names and UUIDs. We still needed to know what wedding information each guest could see.
+---
 
-Instead of guessing endpoints, I inspected Zola's own frontend JavaScript. I searched for "search-groups" and found this: 
+### Gathering More Info
 
-![alt text](image-17.png)
+The `search-groups` endpoint only gave names and UUIDs. We still needed to know what wedding information each guest could see.
 
-This was the function Zola calls when searching a for a guest:
+Instead of guessing endpoints, I inspected Zola's own frontend JavaScript. I searched for `search-groups` and found this:
 
+This was the function Zola calls when searching for a guest:
+
+```ts
 export function getRsvpByGuestGroupUuidV2(
   guestGroupUuid: string
 ): AppThunk<Promise> {
@@ -227,15 +314,21 @@ export function getRsvpByGuestGroupUuidV2(
     });
   };
 }
+```
 
 So the read-only endpoint was:
 
+```http
 GET /web-api/v2/publicwedding/rsvp/guest-group/uuid/<GROUP_UUID>/wedding-account/uuid/<WEDDING_UUID>
+```
 
-Reading the Guest's Wedding Events
+---
+
+### Reading the Guest's Wedding Events
 
 I made another helper:
 
+```js
 async function getRsvp(groupUuid) {
   const weddingUuid =
     "98298caa-11a9-4c3e-83c2-197f59ec8235";
@@ -257,9 +350,11 @@ async function getRsvp(groupUuid) {
 
   return text;
 }
+```
 
-Then queried all three groups:
+Then I queried all three groups:
 
+```js
 const groups = {
   Carl: "46bdaeb5-ba84-4d91-ad7b-29301af31562",
   Tessa: "f59be3eb-9999-46ec-a6f8-c0668f2d727e",
@@ -270,25 +365,32 @@ for (const [name, uuid] of Object.entries(groups)) {
   console.log(`===== ${name} =====`);
   await getRsvp(uuid);
 }
+```
 
 All three requests returned:
 
+```text
 200 OK
+```
 
 The responses contained:
 
-guests
-event_invitations
-events
-meal_options
-rsvp_questions
+- `guests`
+- `event_invitations`
+- `events`
+- `meal_options`
+- `rsvp_questions`
 
-![alt text](image-18.png)
+<p align="center">
+  <img src="image-18-results.png" alt="Zola guest RSVP event response" width="900">
+</p>
 
-That contained a lot of info...surely the flag had to be somewhere...
+That contained a lot of info... surely the flag had to be somewhere...
 
-Searching "uiuctf", and you find the flag under one of Carl's meals!
+Searching for `"uiuctf"` revealed the flag under one of Carl's meals!
 
-![alt text](image-19.png)
+<p align="center">
+  <img src="image-19.png" alt="Flag found under Carl's meal" width="900">
+</p>
 
-flag: uiuctf{handmade_with_a_hidden_detail_7c4e1d}
+> **Flag:** `uiuctf{handmade_with_a_hidden_detail_7c4e1d}`
