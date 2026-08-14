@@ -108,7 +108,7 @@ The first script searched eight queries:
 
 The run returned **156 unique videos**.
 
-The script used a scoring system to determine the most likely videos. Full script can be found in this folder. 
+The script used a scoring system to determine the most likely videos. 
 
 <details>
 <summary><strong>A quick summary of how the script worked</strong></summary>
