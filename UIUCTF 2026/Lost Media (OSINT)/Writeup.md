@@ -15,7 +15,7 @@ The challenge wants us to find a video given a small part of the frame plus some
 
 This was my reaction after finally solving it.
 
-**Just to be clear:** I did **not** manually search through 1,000 videos.
+**Just to be clear:** I did **not** manually search through 1,000 videos. The excitement was from having to wait 20 minutes for the script to finish and I didnt have much hope of finding it.
 
 </td>
 <td width="35%" align="center">
@@ -25,6 +25,7 @@ This was my reaction after finally solving it.
 </td>
 </tr>
 </table>
+
 ## Getting Info
 
 There's not much information in the frame, but it is enough to identify the type of video it is.
