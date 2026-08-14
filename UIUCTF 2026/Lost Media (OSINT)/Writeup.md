@@ -41,7 +41,7 @@ The video game frame is from **The Legend of Zelda: A Link to the Past/Prologue*
 
 ---
 
-## The Manual YouTube Searching
+## The Manual YouTube Searching and More Clues
 
 My first instinct was to just search YouTube for retrospective Legend of Zelda videos.
 
@@ -84,7 +84,7 @@ So instead of using a transcript database, I decided to query YouTube videos dir
 
 ## First Transcript Search Script
 
-*(yes "first"...)*
+*(yes, "first"...)*
 
 The idea was:
 
@@ -92,6 +92,8 @@ The idea was:
 2. Download their subtitles with yt-dlp.
 3. Search those subtitles for the sentence from the screenshot.
 4. Fuzzy match transcripts in case it was cut off or the transcript was slightly changed. *(in hindsight I probably shouldn't have done this)*
+
+> **Full script:** [`zelda_osint_hunter_v1.py`](zelda_osint_hunter_v1.py)
 
 The first script searched eight queries:
 
@@ -179,9 +181,9 @@ I manually opened the video and compared it against the challenge screenshot. **
 
 Other high-ranking candidates had the same problem. There was just too much noise: there were too many random unrelated YouTube videos.
 
-#### Fuzzy Matching screwed me
+### Fuzzy Matching screwed me
 
-Also, the fuzzy matching was a mistake because the words appear in many videos about A Link to the Past.
+The fuzzy matching was a mistake because the words appear in many videos about A Link to the Past.
 
 For example, a completely different video could contain:
 
@@ -217,7 +219,7 @@ I tested the search with more queries such as:
 - Zelda 25th anniversary retrospective
 - Zelda 30th anniversary retrospective
 
-Instead of roughly 150 candidates, this run collected **704 videos**.
+Instead of roughly 150 candidates, this run searched through **704 videos**.
 
 This actually made the results worse.
 
@@ -328,27 +330,14 @@ The correct video had to reach **8:07**...so anything shorter than **487 seconds
 
 ### Constraint 5 - Transcript structure
 
-The narrator appeared to say something like:
+The narrator said these phrases in about this order:
 
-- wise men
-- then "sealed"
-- then "sacred realm"
-- then "now called"
-- then "dark world"
+> **"wise men"** → **"sealed"** → **"sacred realm"** → **"now called"** → **"dark world"**
 
-The script took order into account in the scoring process.
+The script took order into account in the scoring process. This was probably the biggest improvement
 
 <details>
-<summary><strong>This was probably the biggest improvement: heres how the script worked</strong></summary>
-
-The order had to be:
-
-- wise
-- then men
-- then sealed
-- then sacred realm
-- then called
-- then dark world
+<summary><strong>heres how the script did this</strong></summary>
 
 The script contained patterns such as:
 
@@ -377,7 +366,7 @@ This meant a video with all of those words scattered all over the place would sc
 
 ## FINALLY
 
-After the script ran for around **20 MINUTES**, you can see the full results in the csv in this folder.
+After the script ran for around **20 MINUTES**, you can see the full results in [`rankedcandidates.csv`](rankedcandidates.csv).
 
 The new ranking immediately placed one video above the rest:
 
