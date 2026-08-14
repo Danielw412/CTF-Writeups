@@ -366,7 +366,7 @@ This meant a video with all of those words scattered all over the place would sc
 
 ## FINALLY
 
-After the script ran for around **20 MINUTES**, you can see the full results in [`rankedcandidates.csv`](rankedcandidates.csv).
+After the script ran for around **20 MINUTES**, you can see the full results in [`ranked_candidates.csv`](ranked_candidates.csv).
 
 The new ranking immediately placed one video above the rest:
 
